@@ -1,0 +1,164 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
+}
+
+/* 移动设备容器 */
+#app {
+    max-width: 375px;
+    height: 667px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* 启动页 */
+.splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    text-align: center;
+    color: white;
+}
+
+.logo i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.logo p {
+    opacity: 0.8;
+}
+
+/* 顶部栏 */
+.top-bar {
+    height: 60px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-bar button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* 侧边栏 */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: -250px;
+    transition: left 0.3s;
+    z-index: 90;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.user-profile {
+    padding: 20px;
+    border-bottom: 1px solid #34495e;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+}
+
+.nav-item.active {
+    background: #34495e;
+    border-left-color: #3498db;
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+}
+
+/* 消息样式 */
+.message {
+    margin: 10px 0;
+    display: flex;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.ai {
+    justify-content: flex-start;
+}
+
+.bubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.user .bubble {
+    background: #0084ff;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message.ai .bubble {
+    background: #f0f0f0;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
