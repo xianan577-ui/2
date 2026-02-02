@@ -1,0 +1,133 @@
+```
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/这里放你想在主页面显示的图标链接.png">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+```
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - 手机聊天应用</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 启动页 -->
+        <div id="splash" class="splash-screen">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>AI Chat</h1>
+                <p>智能聊天助手</p>
+            </div>
+        </div>
+
+        <!-- 主应用 -->
+        <div id="main-app" class="app-container" style="display: none;">
+            <!-- 顶部栏 -->
+            <div class="top-bar">
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <h2 id="current-view">聊天</h2>
+                <button id="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <!-- 侧边栏 -->
+            <div class="sidebar">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=用户&background=random" alt="头像">
+                    <span>用户</span>
+                </div>
+                <nav>
+                    <a href="#" class="nav-item active" data-view="chats">
+                        <i class="fas fa-comments"></i> 聊天
+                    </a>
+                    <a href="#" class="nav-item" data-view="contacts">
+                        <i class="fas fa-users"></i> 联系人
+                    </a>
+                    <a href="#" class="nav-item" data-view="personas">
+                        <i class="fas fa-mask"></i> 人设管理
+                    </a>
+                    <a href="#" class="nav-item" data-view="settings">
+                        <i class="fas fa-cog"></i> 设置
+                    </a>
+                </nav>
+            </div>
+
+            <!-- 主要内容区 -->
+            <div class="main-content">
+                <!-- 聊天列表 -->
+                <div id="chat-list" class="view">
+                    <!-- 聊天项会通过JS动态添加 -->
+                </div>
+
+                <!-- 聊天窗口 -->
+                <div id="chat-window" class="view" style="display: none;">
+                    <div class="chat-header">
+                        <button id="back-to-list"><i class="fas fa-arrow-left"></i></button>
+                        <div class="contact-info">
+                            <img src="https://ui-avatars.com/api/?name=AI助手&background=0084ff" alt="头像">
+                            <div>
+                                <h3>AI助手</h3>
+                                <span class="status">在线</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="messages-container">
+                        <!-- 消息会通过JS动态添加 -->
+                    </div>
+                    
+                    <div class="input-area">
+                        <input type="text" id="message-input" placeholder="输入消息...">
+                        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <!-- 联系人列表 -->
+                <div id="contacts-view" class="view" style="display: none;">
+                    <div class="view-header">
+                        <h3>联系人</h3>
+                        <button id="add-contact"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- 人设管理 -->
+                <div id="personas-view" class="view" style="display: none;">
+                    <div class="view-header">
+                        <h3>人设管理</h3>
+                        <button id="add-persona"><i class="fas fa-plus-circle"></i> 新人设</button>
+                    </div>
+                </div>
+
+                <!-- 设置 -->
+                <div id="settings-view" class="view" style="display: none;">
+                    <h3>设置</h3>
+                    <div class="settings-group">
+                        <h4>API配置</h4>
+                        <div class="setting-item">
+                            <label>OpenAI API密钥</label>
+                            <input type="password" id="api-key" placeholder="sk-...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div id="modal-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>添加新人设</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-content">
+                <!-- 表单内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
